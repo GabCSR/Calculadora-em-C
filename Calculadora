@@ -1,0 +1,78 @@
+//GabCSR
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int oper;
+    float prim_num, seg_num, calc;
+  printf("Gabriel da Costa Santos Rosa\n");
+  printf("Curso: TECNOLOGIA EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS - ONLINE\n");
+  printf("Universidade: Unilasalle-RJ\n");
+  printf("Matrícula: 202121870\n");
+  printf("Esta é uma calculadora capaz de realizar processos de soma, subtração, multiplicação, divisão, potência e raiz quadrada\n");
+  printf("Qual operação deseja realizar? Digite o número associado a operação\n");
+  printf("1. Soma\n");
+  printf("2. Subtração\n");
+  printf("3. Multiplicação\n");
+  printf("4. Divisão\n");
+  printf("5. Potênciação\n");
+  printf("6. Raiz Quadrada\n");
+  
+  scanf("%d", &oper); // Determina a operação a ser realizada
+  while(oper!=1 || oper!=2 || oper!=3 || oper!=4 || oper!=5 || oper!=6){
+      printf("Você selecionou uma entrada inválida. Favor, selecione um número natural de 1 a 6\n");
+      scanf("%d", &oper); // Determina a operação a ser realizada
+      if(oper==1 || oper==2 || oper==3 || oper==4 || oper==5 || oper==6){
+          break;
+      }
+  }
+  // Obtem o primeiro número da operação
+  // Numerador da divisão e base da potenciação
+  printf("Informe o primeiro número da operação\n");
+  scanf("%f", &prim_num);
+
+  // Calcula a raiz quadrada do número informado
+  if(oper==6){
+      calc = sqrt(prim_num);
+      printf("A raiz quadrada de %f é %f", prim_num, calc);
+  }
+    // Calcula as outras operações
+  else{
+      // Obtem o segundo número da operação
+      // Denominador da divisão e expoente da potenciação
+      printf("Informe o segundo número da operação\n");
+      scanf("%f", &seg_num);
+      // Cálculo da soma
+      if(oper==1){
+          calc = prim_num + seg_num;
+          printf("A soma de %f e %f vale %f", prim_num, seg_num, calc);
+      }
+      // Cálculo da subtração
+      if(oper==2){
+          calc = prim_num - seg_num;
+          printf("A subtração de %f por %f vale %f", prim_num, seg_num, calc);
+      }
+      // Cálculo da multiplicação
+      if(oper==3){
+          calc = prim_num * seg_num;
+          printf("A multiplicação entre %f e %f vale %f", prim_num, seg_num, calc);
+      }
+      // Cálculo da divisão
+      if(oper==4){
+          if(seg_num != 0){
+              calc = prim_num / seg_num;
+              printf("A divisão de %f por %f vale %f", prim_num, seg_num, calc);
+          }
+          else{
+              printf("Não é possível realizar uma divisão por 0");
+          }
+      }
+      // Cálculo da potenciação
+      if(oper==5){
+          calc = pow(prim_num, seg_num);
+          printf("A potênciação de %f elevado a %f vale %f", prim_num, seg_num, calc);
+      }
+  }
+    return 0;
+}
